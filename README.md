@@ -1,5 +1,8 @@
-# MuDyn static analyzer (ICTAC 2019)
-MuJS static analyzer is a static analyzer based on abstract interpretation for MuJs, a sub-language of JavaScript. Its syntax is reported in figure above.
+# MuDyn static analyzer
+MuJS static analyzer is a static analyzer based on abstract interpretation for MuDyn, an imperative toy dynamic language. Full details of MuDyn static analyzers can be found in `Completeness of Abstract Domains for String Analysis of JavaScript Programs`. Its syntax is reported in figure above.
+
+.. _Completeness of Abstract Domains for String Analysis of JavaScript Programs: https://link.springer.com/chapter/10.1007%2F978-3-030-32505-3_15
+
 
 ![image](misc/syn.png)
 
@@ -7,7 +10,7 @@ MuJS static analyzer is a static analyzer based on abstract interpretation for M
 ```
 git clone https://github.com/VincenzoArceri/mudyn-completeness
 ```
-You can either build the Eclipse Proeject or run the  JAR file `mudyn.jar` as
+You can either build the Eclipse Project or run the JAR file `mudyn.jar` as
 ```
 java -jar mudyn.jar filename.js 
 ```
