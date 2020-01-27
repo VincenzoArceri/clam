@@ -5,46 +5,51 @@ MuJS static analyzer is a static analyzer based on abstract interpretation for M
 
 ## How to run the tool
 ```
-git clone https://github.com/SPY-Lab/mu-js
+git clone https://github.com/VincenzoArceri/mudyn-completeness
 ```
-Here you can find the JAR file `mujs.jar` and you can run the MuJS static analyzer as
+You can either build the Eclipse Proeject or run the  JAR file `mudyn.jar` as
 ```
-java -jar mujs.jar filename.js 
+java -jar mudyn.jar filename.js 
 ```
-Some option are available:
-* `-widening n`: set the parametric widening to n;
-* `-narr`: enables narrowing operation. By default, narrowing is not applied;
-* `-coalesced`: choose the coalesced sum abstract domain for the analysis. By default, this domain is used during the analysis;
-* `-lifted`: choose the lifted union abstract domain for the analysis;
-* `-invariants`: prints the invariants for each statement program point. By default, it prints only the memory holding at the end of the abstract execution;
+Some options are available:
+* `-tajs`: set the TAJS string abstract domain (default)
+* `-safe`: set the SAFE string abstract domain
+* `-tajs-shell`: set the TAJS complete shell string abstract domain
+* `-safe-shell`: set the SAFE complete shell string abstract domain
+* `-tajs-comp `: performs the analysis with both the TAJS string domain and its complete shell (showing precision entropy information)
+* `-safe-comp `: performs the analysis with both the SAFE string domain and its complete shell (showing precision entropy information)
+* `-invariants `: prints the invariants for each program point. By default, it prints only the abstract state holding at the exit program point
 * `-help`: print the menu.
 
 ## Example
-Consider the following MuJS program.
+Consider the following MuDyn program.
 
 ```
-str = "helloworld";
-a = 0;
+str = "24kobe8";
+numbers = "";
+notnumbers = "";
+i = 0;
+while (i < length(str)) {
+	if (toNum(charAt(str, i)) == 0) {
+		notnumbers = concat(notnumbers, charAt(str, i));
+	} else {
+		numbers = concat(numbers, charAt(str, i));	
+	}
 
-while (a < 100) {
-	a = a + 1;
+	i = i + 1;
 }
-
-if (a == 5) {
-	c = (str.charAt(0));
-} else {
-	c = (str.charAt(3));
-}
 ```
 
-The state resulting from `java -jar -coalesced mujs.jar file.js is
+The output of `java -jar -coalesced mudyn.jar file.js --tajs-comp` prints, for each prorgam point a table similar to the following (that is the table for the exit program point)
 
 ```
-*******************
-str -> helloworld
-a -> [0, +Inf]
-c -> (l + h)
-*******************
+| Variable  | TAJS original domain| TAJS shell domain   | Precision increment|
+|============================================================================|
+| str       | "24kobe8"           | "24kobe8"           | -                  |
+| notnumbers| String              | UnsignedOrNotNumeric| 1                  |
+| numbers   | String              | UnsignedOrNotNumeric| 1                  |
+| i         | UnsignedInt         | UnsignedInt         | -                  |
+
 ```
 ## Contributors
 - Vincenzo Arceri vincenzo.arceri@univr.it
