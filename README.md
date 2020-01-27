@@ -1,4 +1,4 @@
-# MuJS static analyzer
+# MuDyn static analyzer (ICTAC 2019)
 MuJS static analyzer is a static analyzer based on abstract interpretation for MuJs, a sub-language of JavaScript. Its syntax is reported in figure above.
 
 ![image](misc/syntax.PNG)
@@ -48,4 +48,6 @@ c -> (l + h)
 ```
 ## Contributors
 - Vincenzo Arceri vincenzo.arceri@univr.it
+- Martina Olliaro martina.olliaro@unive.it
+- Tino Cortesi cortesi@unive.it
 - Isabella Mastroeni isabella.mastroeni@univr.it
