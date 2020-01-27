@@ -1,7 +1,7 @@
 # MuDyn static analyzer
 MuJS static analyzer is a static analyzer based on abstract interpretation for MuDyn, an imperative toy dynamic language. Full details of MuDyn static analyzers can be found in [Completeness of Abstract Domains for String Analysis of JavaScript Programs](https://link.springer.com/chapter/10.1007%2F978-3-030-32505-3_15) presented in the 16th International Colloquium on Theoretical Aspects of Computing (ICTAC 2019).
 
-The MudYn syntax is reported in the following.
+The MuDyn syntax is reported in the following.
 
 ![image](misc/syn.png)
 
