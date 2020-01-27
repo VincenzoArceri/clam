@@ -211,14 +211,14 @@ public class Analyzer {
 		result += "Usage:";
 		result +=" java -jar mudyn.jar <file> (<opt>)*\n\n";
 		result +="where <opt> is one of:\n\n";
-		result += "\t -tajs \t\t\t set TAJS string abstract domain (default)\n";
-		result += "\t -safe \t\t\t set SAFE string abstract domain \n";
-		result += "\t -tajs-shell \t\t set TAJS complete shell string abstract domain\n";
-		result += "\t -safe-shell \t\t set SAFE complete shell string abstract domain \n";
-		result += "\t -tajs-comp \t\t performs both the analysis with TAJS string domain and its complete shell\n";
-		result += "\t -safe-comp \t\t performs both the analysis with SAFE string domain and its complete shell\n";
+		result += "\t -tajs \t\t\t set the TAJS string abstract domain (default)\n";
+		result += "\t -safe \t\t\t set the SAFE string abstract domain \n";
+		result += "\t -tajs-shell \t\t set the TAJS complete shell string abstract domain\n";
+		result += "\t -safe-shell \t\t set the SAFE complete shell string abstract domain \n";
+		result += "\t -tajs-comp \t\t performs the analysis with both the TAJS string domain and its complete shell (showing precision entropy information)\n";
+		result += "\t -safe-comp \t\t performs the analysis with both the SAFE string domain and its complete shell (showing precision entropy information)\n";
 		result += "\t -invarians \t\t prints the invariants for each program point.\n";
-		result += "\t\t\t\t By default, it prints only the abstract state holding at the end of the analysis\n";
+		result += "\t\t\t\t By default, it prints only the abstract state holding at the exit program point\n";
 		result += "\t -help \t\t\t print the help menu\n";
 
 		return result;
