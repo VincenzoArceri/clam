@@ -13,13 +13,9 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import dnl.utils.text.table.TextTable;
 import it.univr.domain.AbstractDomain;
 import it.univr.domain.safe.original.SAFEAbstractDomain;
-import it.univr.domain.safe.original.SAFEStrings;
 import it.univr.domain.safe.shell.SAFEShellAbstractDomain;
-import it.univr.domain.safe.shell.SAFEShellStrings;
 import it.univr.domain.tajs.original.TAJSAbstractDomain;
-import it.univr.domain.tajs.original.TAJSStrings;
 import it.univr.domain.tajs.shell.TAJSShellAbstractDomain;
-import it.univr.domain.tajs.shell.TAJSShellStrings;
 import it.univr.state.AbstractEnvironment;
 import it.univr.state.AbstractState;
 import it.univr.state.KeyAbstractState;
@@ -29,8 +25,14 @@ public class Analyzer {
 
 	public static void main(String[] args) throws IOException {
 		System.out.println(potd());
+
+		if (args.length == 0) {
+			System.out.println(printHelp());
+			return;
+		}
 		String file = args[0];
 
+		
 		boolean narrowing = false;
 		boolean printInvariants = true;
 		boolean tajsComparison = false;
@@ -205,37 +207,32 @@ public class Analyzer {
 
 	private static String printHelp() {
 		String result = "";
-		result += "MuJS static analyzer.\n";
+		result += "MuDyn static analyzer\n";
 		result += "Usage:";
-		result +="java -jar mujs.jar <file> (<opt>)*\n\n";
+		result +=" java -jar mudyn.jar <file> (<opt>)*\n\n";
 		result +="where <opt> is one of:\n\n";
-		result += "\t -narr \t\t\t enables narrowing operator (default: disabled)\n";
-		result += "\t -widening n \t\t set the parametric widening to n\n";
-		result += "\t -coalesced \t\t enable the coalesced sum abstract domain (default)\n";
-		result += "\t -lifted \t\t enable the lifted union abstract domain\n";
-		result += "\t -invarians \t\t prints the invariants for each statement program point.\n";
-		result += "\t\t\t\t By default, it prints only the memory holding at the end of the abstract execution\n";
-		result += "\t -help \t\t\t print the menu\n";
+		result += "\t -tajs \t\t\t set TAJS string abstract domain (default)\n";
+		result += "\t -safe \t\t\t set SAFE string abstract domain \n";
+		result += "\t -tajs-shell \t\t set TAJS complete shell string abstract domain\n";
+		result += "\t -safe-shell \t\t set SAFE complete shell string abstract domain \n";
+		result += "\t -tajs-comp \t\t performs both the analysis with TAJS string domain and its complete shell\n";
+		result += "\t -safe-comp \t\t performs both the analysis with SAFE string domain and its complete shell\n";
+		result += "\t -invarians \t\t prints the invariants for each program point.\n";
+		result += "\t\t\t\t By default, it prints only the abstract state holding at the end of the analysis\n";
+		result += "\t -help \t\t\t print the help menu\n";
 
 		return result;
 	}
 
 	private static String potd() {
-		return "MMMMMMMM               MMMMMMMM                            JJJJJJJJJJJ   SSSSSSSSSSSSSSS \n" +
-				"M:::::::M             M:::::::M                            J:::::::::J SS:::::::::::::::S\n"+
-				"M::::::::M           M::::::::M                            J:::::::::JS:::::SSSSSS::::::S\n"+
-				"M:::::::::M         M:::::::::M                            JJ:::::::JJS:::::S     SSSSSSS\n"+
-				"M::::::::::M       M::::::::::Muuuuuu    uuuuuu              J:::::J  S:::::S            \n"+
-				"M:::::::::::M     M:::::::::::Mu::::u    u::::u              J:::::J  S:::::S            \n"+
-				"M:::::::M::::M   M::::M:::::::Mu::::u    u::::u              J:::::J   S::::SSSS         \n"+
-				"M::::::M M::::M M::::M M::::::Mu::::u    u::::u              J:::::j    SS::::::SSSSS    \n"+
-				"M::::::M  M::::M::::M  M::::::Mu::::u    u::::u              J:::::J      SSS::::::::SS  \n"+
-				"M::::::M   M:::::::M   M::::::Mu::::u    u::::u  JJJJJJJ     J:::::J         SSSSSS::::S \n"+
-				"M::::::M    M:::::M    M::::::Mu::::u    u::::u  J:::::J     J:::::J              S:::::S\n"+
-				"M::::::M     MMMMM     M::::::Mu:::::uuuu:::::u  J::::::J   J::::::J              S:::::S\n"+
-				"M::::::M               M::::::Mu:::::::::::::::uuJ:::::::JJJ:::::::J  SSSSSSS     S:::::S\n"+
-				"M::::::M               M::::::M u:::::::::::::::u JJ:::::::::::::JJ   S::::::SSSSSS:::::S\n"+
-				"M::::::M               M::::::M  uu::::::::uu:::u   JJ:::::::::JJ     S:::::::::::::::SS \n"+
-				"MMMMMMMM               MMMMMMMM    uuuuuuuu  uuuu     JJJJJJJJJ        SSSSSSSSSSSSSSS\n";
+		return 
+				"___  ___     ______             \n"+
+				"|  \\/  |     |  _  \\           \n"+ 
+				"| .  . |_   _| | | |_   _ _ __ \n"+ 
+				"| |\\/| | | | | | | | | | | '_ \\ \n"+
+				"| |  | | |_| | |/ /| |_| | | | |\n"+
+				"\\_|  |_/\\__,_|___/  \\__, |_| |_|\n"+
+				"                     __/ |      \n"+
+				"                    |___/       \n";
 	}
 }
