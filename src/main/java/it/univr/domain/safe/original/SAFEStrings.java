@@ -10,7 +10,6 @@ import it.univr.domain.safe.shell.SAFEShellStrings;
 public class SAFEStrings implements AbstractValue {
 
 	static private final Pattern NUMBER = Pattern.compile("-?(([0-9]+(\\.[0-9]*)?|\\.[0-9]+)([eE][-+][0-9]+)?)"); // TODO: check that this over-approximates the possible output of Number.toString
-	static private final Pattern UNSIGNED_FLOAT = Pattern.compile("[0-9]+\\.([0-9]*)"); 
 
 	private final static int BOT = 0x00000001; 
 	private final static int SINGLE_STRING = 0x00000002;

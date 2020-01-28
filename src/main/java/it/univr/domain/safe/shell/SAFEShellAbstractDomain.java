@@ -2,7 +2,6 @@ package it.univr.domain.safe.shell;
 
 import it.univr.domain.AbstractDomain;
 import it.univr.domain.AbstractValue;
-import it.univr.domain.safe.original.SAFEStrings;
 
 public class SAFEShellAbstractDomain extends AbstractDomain {
 

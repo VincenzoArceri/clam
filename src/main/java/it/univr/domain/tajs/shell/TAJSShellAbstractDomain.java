@@ -2,7 +2,6 @@ package it.univr.domain.tajs.shell;
 
 import it.univr.domain.AbstractDomain;
 import it.univr.domain.AbstractValue;
-import it.univr.domain.tajs.original.TAJSStrings;
 
 public class TAJSShellAbstractDomain extends AbstractDomain {
 

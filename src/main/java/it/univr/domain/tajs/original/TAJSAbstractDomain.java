@@ -2,8 +2,6 @@ package it.univr.domain.tajs.original;
 
 import it.univr.domain.AbstractDomain;
 import it.univr.domain.AbstractValue;
-import it.univr.domain.safe.shell.Interval;
-import it.univr.domain.safe.shell.SAFEShellStrings;
 import it.univr.domain.tajs.original.Bool;
 import it.univr.domain.tajs.original.Bottom;
 import it.univr.domain.tajs.original.Top;
