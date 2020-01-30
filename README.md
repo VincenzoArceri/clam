@@ -1,5 +1,5 @@
-# MuDyn static analyzer
-MuJS static analyzer is a static analyzer based on abstract interpretation for MuDyn, an imperative toy dynamic language. Full details of MuDyn static analyzers can be found in [Completeness of Abstract Domains for String Analysis of JavaScript Programs](https://link.springer.com/chapter/10.1007%2F978-3-030-32505-3_15) presented in the 16th International Colloquium on Theoretical Aspects of Computing (ICTAC 2019).
+# CLAM static analyzer
+CLAM static analyzer is a static analyzer based on abstract interpretation for MuDyn, an imperative toy dynamic language. Full details of MuDyn language and CLAM can be found in [Completeness of Abstract Domains for String Analysis of JavaScript Programs](https://link.springer.com/chapter/10.1007%2F978-3-030-32505-3_15) presented in the 16th International Colloquium on Theoretical Aspects of Computing (ICTAC 2019).
 
 The MuDyn syntax is reported in the following.
 
@@ -7,11 +7,11 @@ The MuDyn syntax is reported in the following.
 
 ## How to run the tool
 ```
-git clone https://github.com/VincenzoArceri/mudyn-completeness
+git clone https://github.com/VincenzoArceri/clam
 ```
-You can either build the Eclipse Project or run the JAR file `mudyn.jar` as
+You can either build the Eclipse Project or run the JAR file `clam.jar` as
 ```
-java -jar mudyn.jar filename.js 
+java -jar clam.jar filename.js 
 ```
 Some options are available:
 * `-tajs`: set the TAJS string abstract domain (default)
@@ -42,7 +42,7 @@ while (i < length(str)) {
 }
 ```
 
-The output of `java -jar -coalesced mudyn.jar file.js --tajs-comp` prints, for each prorgam point a table similar to the following (that is the table for the exit program point)
+The output of `java -jar -coalesced clam.jar file.js --tajs-comp` prints, for each prorgam point a table similar to the following (that is the table for the exit program point)
 
 ```
 | Variable  | TAJS original domain| TAJS shell domain   | Precision increment|
