@@ -207,7 +207,7 @@ public class Analyzer {
 
 	private static String printHelp() {
 		String result = "";
-		result += "MuDyn static analyzer\n";
+		result += "CLAM static analyzer for MuDyn\n";
 		result += "Usage:";
 		result +=" java -jar mudyn.jar <file> (<opt>)*\n\n";
 		result +="where <opt> is one of:\n\n";
@@ -226,13 +226,14 @@ public class Analyzer {
 
 	private static String potd() {
 		return 
-				"___  ___     ______             \n"+
-				"|  \\/  |     |  _  \\           \n"+ 
-				"| .  . |_   _| | | |_   _ _ __ \n"+ 
-				"| |\\/| | | | | | | | | | | '_ \\ \n"+
-				"| |  | | |_| | |/ /| |_| | | | |\n"+
-				"\\_|  |_/\\__,_|___/  \\__, |_| |_|\n"+
-				"                     __/ |      \n"+
-				"                    |___/       \n";
+
+				 "██████╗██╗      █████╗ ███╗   ███╗\n"+
+				"██╔════╝██║     ██╔══██╗████╗ ████║\n"+
+				"██║     ██║     ███████║██╔████╔██║\n"+
+				"██║     ██║     ██╔══██║██║╚██╔╝██║\n"+
+				"╚██████╗███████╗██║  ██║██║ ╚═╝ ██║\n"+
+				 "╚═════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝\n";
+				                                   
+
 	}
 }
