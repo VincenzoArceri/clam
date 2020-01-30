@@ -3,7 +3,7 @@ CLAM static analyzer is a static analyzer based on abstract interpretation for M
 
 The MuDyn syntax is reported in the following.
 
-![image](misc/syn.png)
+![image](syn.png)
 
 ## How to run the tool
 ```
