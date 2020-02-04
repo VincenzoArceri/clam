@@ -9,10 +9,17 @@ The MuDyn syntax is reported in the following.
 ```
 git clone https://github.com/VincenzoArceri/clam
 ```
-You can either build the Eclipse Project or run the JAR file `clam.jar` as
+You can either build the Eclipse Project, run the JAR file `clam.jar` as
 ```
 java -jar clam.jar filename.js 
 ```
+or execute CLAM by using Docker
+
+```
+docker pull vincenzoarceri/clam
+docker run -v /absolute/path/to/local/file.js:/file.js vincenzoarceri/clam file.js
+```
+
 Some options are available:
 * `-tajs`: set the TAJS string abstract domain (default)
 * `-safe`: set the SAFE string abstract domain
