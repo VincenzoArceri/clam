@@ -26,13 +26,13 @@ public class Analyzer {
 	public static void main(String[] args) throws IOException {
 		System.out.println(potd());
 
+
 		if (args.length == 0) {
 			System.out.println(printHelp());
 			return;
 		}
 		String file = args[0];
 
-		
 		boolean narrowing = false;
 		boolean printInvariants = true;
 		boolean tajsComparison = false;
@@ -97,7 +97,7 @@ public class Analyzer {
 				System.out.println(env);
 			}
 		} catch (FileNotFoundException f) {
-			System.out.println(printHelp());
+			System.err.println( file + ": file not found!");
 		}
 	}
 
@@ -113,16 +113,16 @@ public class Analyzer {
 			int n = tajs.get(k).getStore().keySet().size();
 			String[][] t = new String[n][4];
 			int i = 0;
-			
-		
+
+
 			for (Variable v : tajs.get(k).getStore().keySet()) {
 				t[i][0] = v.toString();
 				t[i][1] = tajs.get(k).getStore().getValue(v).toString();
 				t[i][2] = tajsShell.get(k).getStore().getValue(v).toString();
-				
+
 				tajsPrecisionEntropy += tajs.get(k).getStore().getValue(v).distanceFromBottom();
 				tajsShellPrecisionEntropy += tajsShell.get(k).getStore().getValue(v).distanceFromBottom();
-				
+
 				int entropy = tajs.get(k).getStore().getValue(v).distanceFromBottom() - tajsShell.get(k).getStore().getValue(v).distanceFromBottom();
 				t[i][3] = String.valueOf((entropy == 0 ? "-" : entropy)) ;
 				i++;
@@ -133,11 +133,11 @@ public class Analyzer {
 			System.out.println("\n");
 
 		}
-		
+
 		System.out.println("TAJS string precision entropy: " + tajsPrecisionEntropy);
 		System.out.println("TAJS shell string precision entropy: " + tajsShellPrecisionEntropy);
 	}
-	
+
 	private static void printSAFEComparison(AbstractState safe, AbstractState safeShell) {
 
 		String[] columns = {"Variable", "SAFE original domain", "SAFE shell domain", "Precision increment"};
@@ -150,7 +150,7 @@ public class Analyzer {
 			int n = safe.get(k).getStore().keySet().size();
 			String[][] t = new String[n][4];
 			int i = 0;
-			
+
 			for (Variable v : safe.get(k).getStore().keySet()) {
 				t[i][0] = v.toString();
 				t[i][1] = safe.get(k).getStore().getValue(v).toString();
@@ -158,11 +158,11 @@ public class Analyzer {
 
 				safePrecisionEntropy += safe.get(k).getStore().getValue(v).distanceFromBottom();
 				safeShellPrecisionEntropy += safeShell.get(k).getStore().getValue(v).distanceFromBottom();
-				
+
 				int entropy = safe.get(k).getStore().getValue(v).distanceFromBottom() - safeShell.get(k).getStore().getValue(v).distanceFromBottom();
 				t[i][3] = String.valueOf((entropy == 0 ? "-" : entropy)) ;
-				
-				
+
+
 				t[i][3] = safeShell.get(k).getStore().getValue(v).distanceFrom(safe.get(k).getStore().getValue(v));
 				i++;
 			}
@@ -171,7 +171,7 @@ public class Analyzer {
 			table.printTable();
 			System.out.println("\n");
 		}
-		
+
 		System.out.println("SAFE string precision entropy: " + safePrecisionEntropy);
 		System.out.println("SAFE string shell precision entropy: " + safeShellPrecisionEntropy);
 	}
@@ -227,13 +227,13 @@ public class Analyzer {
 	private static String potd() {
 		return 
 
-				 "██████╗██╗      █████╗ ███╗   ███╗\n"+
+				"██████╗██╗      █████╗ ███╗   ███╗\n"+
 				"██╔════╝██║     ██╔══██╗████╗ ████║\n"+
 				"██║     ██║     ███████║██╔████╔██║\n"+
 				"██║     ██║     ██╔══██║██║╚██╔╝██║\n"+
 				"╚██████╗███████╗██║  ██║██║ ╚═╝ ██║\n"+
-				 "╚═════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝\n";
-				                                   
+				"╚═════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝\n";
+
 
 	}
 }
