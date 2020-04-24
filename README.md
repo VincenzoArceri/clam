@@ -1,5 +1,5 @@
 # CLAM static analyzer
-CLAM static analyzer is a static analyzer based on abstract interpretation for MuDyn, an imperative toy dynamic language. Full details of MuDyn language and CLAM can be found in [Completeness of Abstract Domains for String Analysis of JavaScript Programs](https://link.springer.com/chapter/10.1007%2F978-3-030-32505-3_15) presented in the 16th International Colloquium on Theoretical Aspects of Computing (ICTAC 2019).
+CLAM static analyzer is a static analyzer based on abstract interpretation for μDyn, an imperative toy dynamic language. Full details of μDyn language and CLAM can be found in [Completeness of Abstract Domains for String Analysis of JavaScript Programs](https://link.springer.com/chapter/10.1007%2F978-3-030-32505-3_15) presented in the 16th International Colloquium on Theoretical Aspects of Computing (ICTAC 2019).
 
 The MuDyn syntax is reported in the following.
 
@@ -31,7 +31,7 @@ Some options are available:
 * `-help`: print the menu.
 
 ## Example
-Consider the following MuDyn program.
+Consider the following μDyn program.
 
 ```
 str = "24kobe8";
