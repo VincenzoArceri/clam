@@ -61,7 +61,7 @@ The output of `java -jar -coalesced clam.jar file.js --tajs-comp` prints, for ea
 
 ```
 ## Contributors
-- Vincenzo Arceri vincenzo.arceri@univr.it
+- Vincenzo Arceri vincenzo.arceri@unive.it
 - Martina Olliaro martina.olliaro@unive.it
-- Tino Cortesi cortesi@unive.it
+- Agostino Cortesi cortesi@unive.it
 - Isabella Mastroeni isabella.mastroeni@univr.it
